@@ -1,3 +1,4 @@
+package model;
 
 public class Voto {
 	public int numero;

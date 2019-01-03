@@ -1,3 +1,4 @@
+package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -13,7 +14,6 @@ public class Urna extends JPanel {
 	private JTextField txtat;
 	private JButton bt01;
 	private JButton bt02;
-	private JMenuBar jbar;
 	private JButton bt03;
 	private JButton bt04;
 	private JButton bt05;
@@ -125,25 +125,18 @@ public class Urna extends JPanel {
 	}
 
 	public Urna() {
+		setMinimumSize(new Dimension(1048, 507));
+		setMaximumSize(new Dimension(1048, 507));
 		setBackground(SystemColor.info);
 		setForeground(Color.WHITE);
-		// construct preComponents
-		JMenu fileMenu = new JMenu("File");
-		JMenuItem addcandidatoItem = new JMenuItem("addCandidato");
-		fileMenu.add(addcandidatoItem);
-		JMenu helpMenu = new JMenu("Help");
 		txt3 = new JTextField(5);
-		txt4 = new JTextField(5);
-		txt5 = new JTextField(5);
+		txt3.setEditable(false);
 		bt01 = new JButton("1");
 		bt01.setForeground(Color.WHITE);
 		bt01.setBackground(Color.BLACK);
 		bt02 = new JButton("2");
 		bt02.setBackground(Color.BLACK);
 		bt02.setForeground(Color.WHITE);
-		jbar = new JMenuBar();
-		jbar.add(fileMenu);
-		jbar.add(helpMenu);
 		bt03 = new JButton("3");
 		bt03.setForeground(Color.WHITE);
 		bt03.setBackground(Color.BLACK);
@@ -185,11 +178,8 @@ public class Urna extends JPanel {
 		setPreferredSize(new Dimension(1048, 507));
 		setLayout(null);
 		add(txt3);
-		add(txt4);
-		add(txt5);
 		add(bt01);
 		add(bt02);
-		add(jbar);
 		add(bt03);
 		add(bt04);
 		add(bt05);
@@ -202,11 +192,8 @@ public class Urna extends JPanel {
 		add(btCon);
 		add(btCor);
 		txt3.setBounds(185, 200, 25, 35);
-		txt4.setBounds(210, 200, 25, 35);
-		txt5.setBounds(235, 200, 25, 35);
 		bt01.setBounds(695, 75, 105, 70);
 		bt02.setBounds(810, 75, 105, 70);
-		jbar.setBounds(0, 0, 1045, 25);
 		bt03.setBounds(925, 75, 105, 70);
 		bt04.setBounds(695, 155, 105, 70);
 		bt05.setBounds(810, 155, 105, 70);
@@ -226,15 +213,29 @@ public class Urna extends JPanel {
 		
 				// construct components
 				txt1 = new JTextField(5);
-				txt1.setBounds(99, 156, 25, 35);
+				txt1.setEditable(false);
+				txt1.setBounds(103, 156, 25, 35);
 				panel.add(txt1);
 				txt2 = new JTextField(5);
+				txt2.setEditable(false);
 				txt2.setBounds(130, 156, 25, 35);
 				panel.add(txt2);
 				
 				JLabel lblDeputadoFederal = new JLabel("DEPUTADO FEDERAL");
 				lblDeputadoFederal.setBounds(210, 114, 243, 15);
 				panel.add(lblDeputadoFederal);
+				txt5 = new JTextField(5);
+				txt5.setEditable(false);
+				txt5.setBounds(210, 156, 25, 35);
+				panel.add(txt5);
+				txt4 = new JTextField(5);
+				txt4.setEditable(false);
+				txt4.setBounds(184, 156, 25, 35);
+				panel.add(txt4);
+				
+				JMenuBar menuBar = new JMenuBar();
+				menuBar.setBounds(0, 0, 1048, 21);
+				add(menuBar);
         uptxt();
 
 		bt01.addActionListener(new ActionListener() {

@@ -1,3 +1,4 @@
+package model;
 
 public class Candidato extends Pessoa{
 	public int numero;
