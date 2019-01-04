@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-public class Urna extends JPanel {
+public class Urna extends JFrame {
 
 	private JTextField txt1;
 	private JTextField txt2;
@@ -125,12 +125,13 @@ public class Urna extends JPanel {
 	}
 
 	public Urna() {
-		setMinimumSize(new Dimension(1048, 507));
-		setMaximumSize(new Dimension(1048, 507));
-		setBackground(SystemColor.info);
+		setSize(new Dimension(1048, 520));
+		setMinimumSize(new Dimension(1048, 510));
+		getContentPane().setBackground(SystemColor.info);
+		getContentPane().setForeground(Color.WHITE);
+		setBackground(SystemColor.text);
 		setForeground(Color.WHITE);
-		txt3 = new JTextField(5);
-		txt3.setEditable(false);
+		setResizable(false);
 		bt01 = new JButton("1");
 		bt01.setForeground(Color.WHITE);
 		bt01.setBackground(Color.BLACK);
@@ -168,30 +169,24 @@ public class Urna extends JPanel {
 		btCon.setBackground(Color.GREEN);
 		btCor = new JButton("Corrigir");
 		btCor.setBackground(Color.RED);
-//        txt1.setEnabled(false);
-//        txt2.setEnabled(false);
-//        txt3.setEnabled(false);
-//        txt4.setEnabled(false);
-//        txt5.setEnabled(false);
 
+		
 		// adjust size and set layout
-		setPreferredSize(new Dimension(1048, 507));
-		setLayout(null);
-		add(txt3);
-		add(bt01);
-		add(bt02);
-		add(bt03);
-		add(bt04);
-		add(bt05);
-		add(bt06);
-		add(bt07);
-		add(bt08);
-		add(bt09);
-		add(bt00);
-		add(btBra);
-		add(btCon);
-		add(btCor);
-		txt3.setBounds(185, 200, 25, 35);
+		setPreferredSize(new Dimension(1048, 510));
+		getContentPane().setLayout(null);
+		getContentPane().add(bt01);
+		getContentPane().add(bt02);
+		getContentPane().add(bt03);
+		getContentPane().add(bt04);
+		getContentPane().add(bt05);
+		getContentPane().add(bt06);
+		getContentPane().add(bt07);
+		getContentPane().add(bt08);
+		getContentPane().add(bt09);
+		getContentPane().add(bt00);
+		getContentPane().add(btBra);
+		getContentPane().add(btCon);
+		getContentPane().add(btCor);
 		bt01.setBounds(695, 75, 105, 70);
 		bt02.setBounds(810, 75, 105, 70);
 		bt03.setBounds(925, 75, 105, 70);
@@ -208,34 +203,56 @@ public class Urna extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(28, 44, 644, 431);
-		add(panel);
+		getContentPane().add(panel);
 				panel.setLayout(null);
 		
 				// construct components
 				txt1 = new JTextField(5);
 				txt1.setEditable(false);
-				txt1.setBounds(103, 156, 25, 35);
+				txt1.setBounds(104, 156, 25, 35);
 				panel.add(txt1);
 				txt2 = new JTextField(5);
 				txt2.setEditable(false);
 				txt2.setBounds(130, 156, 25, 35);
 				panel.add(txt2);
+				txt3 = new JTextField(5);
+				txt3.setBounds(156, 156, 25, 35);
+				panel.add(txt3);
+				txt3.setEditable(false);
 				
 				JLabel lblDeputadoFederal = new JLabel("DEPUTADO FEDERAL");
 				lblDeputadoFederal.setBounds(210, 114, 243, 15);
 				panel.add(lblDeputadoFederal);
 				txt5 = new JTextField(5);
 				txt5.setEditable(false);
-				txt5.setBounds(210, 156, 25, 35);
+				txt5.setBounds(208, 156, 25, 35);
 				panel.add(txt5);
 				txt4 = new JTextField(5);
 				txt4.setEditable(false);
-				txt4.setBounds(184, 156, 25, 35);
+				txt4.setBounds(182, 156, 25, 35);
 				panel.add(txt4);
 				
 				JMenuBar menuBar = new JMenuBar();
 				menuBar.setBounds(0, 0, 1048, 21);
-				add(menuBar);
+				getContentPane().add(menuBar);
+				
+				JMenu mnAdd = new JMenu("Add");
+				menuBar.add(mnAdd);
+				
+				JMenuItem mntmCandidato = new JMenuItem("Candidato");
+				mnAdd.add(mntmCandidato);
+				
+				JMenuItem mntmEleitor = new JMenuItem("Eleitor");
+				mnAdd.add(mntmEleitor);
+				
+				JMenu mnHelp = new JMenu("Help");
+				menuBar.add(mnHelp);
+				
+				JMenuItem mntmVotos = new JMenuItem("Votos");
+				mnHelp.add(mntmVotos);
+				
+				JMenuItem mntmInfo = new JMenuItem("Info");
+				mnHelp.add(mntmInfo);
         uptxt();
 
 		bt01.addActionListener(new ActionListener() {
@@ -308,10 +325,8 @@ public class Urna extends JPanel {
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("Urna");
+		JFrame frame = new Urna();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(new Urna());
-		frame.pack();
 		frame.setVisible(true);
 
 	}
