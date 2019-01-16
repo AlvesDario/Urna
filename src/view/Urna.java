@@ -6,8 +6,12 @@ import javax.swing.event.*;
 
 public class Urna extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JTextField[] txt = new JTextField[5];
-//	private JTextField txtat;
 	private JMenuBar menuBar;
 	private JButton bt01;
 	private JButton bt02;
@@ -521,7 +525,7 @@ public class Urna extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new Urna();
+		Urna frame = new Urna();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 
